@@ -17,8 +17,6 @@ function calcFrame()
 {
 	distance = $('#distance').val();
 	focal_length = $('#focal_length').val();
-	console.log(distance);
-	console.log(focal_length);
 	vertical = calcVertical(distance, focal_length);
 	horizontal = calcHorizontal(distance,focal_length);
 	$('#out').text(horizontal + ' x ' + vertical);
@@ -28,15 +26,17 @@ function calcFrame()
 function scale_picture(scale)
 {
 	$('#scaler').attr('transform', 'scale(' + scale + ')');
+	width = $('#frame').width();
+	height = width * 9 / 16;
 
 	actual_width = $('#man')[0].getBoundingClientRect().width;
 	actual_height = $('#man')[0].getBoundingClientRect().height;
-	x_offset = (320 - (actual_width / 2)) / scale;
-	if (actual_height <= 360)
+	x_offset = (width / 2 - (actual_width / 2)) / scale;
+	if (actual_height <= height)
 	{
-		y_offset = (360 - actual_height) / scale;
+		y_offset = (height - actual_height) / scale;
 	} else {
-		y_offset = (360 + 350 * (scale - 1) - actual_height) / scale;
+		y_offset = (height * 2.5 * (scale - 1) - actual_height) / scale;
 		
 	}
 	
@@ -44,6 +44,21 @@ function scale_picture(scale)
 	$('#man').attr('y', y_offset);
 }
 
+function resize() {
+	width = $('#frame').width();
+	height = width * 9 / 16;
+	$('#frame').height(height);
+	console.log()
+	$('#svg').attr('width', width);
+	$('#svg').attr('height', height);
+	$('#svg').find('image').attr('width', width);
+	$('#svg').find('image').attr('height', height);
+}
+
 $(document).ready(function() {
+	$(window).resize(function(){
+		resize();
+	})
+	resize();
 	scale_picture(1);
 });

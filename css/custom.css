@@ -1,6 +1,5 @@
 #frame {
-	width: 640px;
-	height: 360px;
+	width: 100%;
 	background-color: grey;
 }
 #man {

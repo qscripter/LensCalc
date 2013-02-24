@@ -11,8 +11,7 @@
 	    <!--[if lt IE 9]>
 	      <script src="assets/js/html5shiv.js"></script>
 	    <![endif]-->
-
-		
+	    		
 	</head>
 	<body>
 		<div class='container'>
@@ -32,26 +31,36 @@
 								<input type="text" id="distance" placeholder="Distance">
 							</div>
 						</div>
-						<br>
-						<a class='btn btn-primary' onclick='calcFrame();'>Calculate</a>
+						<div class="control-group">
+							<div class="controls">
+								<a class='btn btn-primary' onclick='calcFrame();'>Calculate</a>
+							</div>
+						</div>
 					</form>
 					<br>
 					Distace:
 					<p id='out'></p>
 					<div id='frame'>
-						<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" xmlns:xlink="http://www.w3.org/1999/xlink" >
-							<g id='scaler' height='360' width='640'>
+						<svg id='svg' xmlns="http://www.w3.org/2000/svg" width="640" height="360" xmlns:xlink="http://www.w3.org/1999/xlink" >
+							<g id='scaler'>
 						    <image id='man' x="0" y="0" height='360' width='640' xlink:href="img/stick_figure_male.svg" />
 						  </g>
 						</svg>
 					</div>
-
 				</div>
 			</div>
 
 		</div>
 		<script type="text/javascript" src='js/jquery-1.9.1.js'></script>
+		<script type="text/javascript" src='js/detectmobilebrowser.js'></script>
 		<script type="text/javascript" src='js/bootstrap.js'></script>
 		<script type="text/javascript" src='js/lenscalc.js'></script>
+		<script type="text/javascript" src='js/detectmobilebrowser.js'></script>
+		<script>
+			if (jQuery.browser.mobile)
+			{
+				window.location.replace("http://quinnscripter.com/lenscalc/m/");
+			}
+		</script>
 	</body>
 </html>

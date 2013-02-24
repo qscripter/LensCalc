@@ -24,13 +24,16 @@
         <script>
             try {
 
-    $(function() {
+                $(function() {
 
-    });
+                });
 
-  } catch (error) {
-    console.error("Your javascript has an error: " + error);
-  }
+              } catch (error) {
+                console.error("Your javascript has an error: " + error);
+              }
+            $(document).ready(function{
+                $('#frame').width('100%');
+            })
         </script>
     </head>
     <body>
@@ -64,8 +67,8 @@
                 Distace:
 				<p id='out'></p>
 				<div id='frame'>
-						<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" xmlns:xlink="http://www.w3.org/1999/xlink" >
-							<g id='scaler' height='360' width='640'>
+						<svg id='svg' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+							<g id='scaler'>
 						    <image id='man' x="0" y="0" height='360' width='640' xlink:href="../img/stick_figure_male.svg" />
 						  </g>
 						</svg>
