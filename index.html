@@ -18,6 +18,11 @@
 			<div class="row">
 				<div class="span12">
 					<h1>Broadcast Lens Calculator</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span6">
+					<h4>Inputs</h4>
 					<form class="form-horizontal">
 						<div class="control-group">
 							<label class="control-label" for="focal_length">Focal Length</label>
@@ -26,9 +31,64 @@
 							</div>
 						</div>
 						<div class="control-group">
-							<label class="control-label" for="distance">Distace</label>
+							<label class="control-label" for="distance">Distace to Subject</label>
 							<div class="controls">
 								<input type="text" id="distance" placeholder="Distance">
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="sensor">Sensor Size</label>
+							<div class="controls">
+								<select id="sensorSize" class="form-control">
+									<optgroup label="16:9 Video">
+										<option sensorWidth="23.62" sensorHeight="13.28">Super 35*</option>
+										<option selected sensorWidth="9.59" sensorHeight="5.39">2/3-inch</option>
+										<option sensorWidth="6.97" sensorHeight="3.92">1/2-inch</option>
+										<option sensorWidth="5.23" sensorHeight="2.94">1/3-inch</option>
+										<option sensorWidth="3.49" sensorHeight="1.96">1/4-inch</option>
+										<option sensorWidth="2.37" sensorHeight="1.33">1/6-inch</option>
+									</optgroup>
+									<optgroup label="4:3 Video">
+										<option sensorWidth="20.32" sensorHeight="15.24">1.5-inch</option>
+										<option sensorWidth="12.70" sensorHeight="9.50">1-inch</option>
+										<option sensorWidth="8.80" sensorHeight="6.60">2/3-inch</option>
+										<option sensorWidth="6.40" sensorHeight="4.80">1/2-inch</option>
+										<option sensorWidth="4.80" sensorHeight="3.60">1/3-inch</option>
+										<option sensorWidth="3.20" sensorHeight="2.40">1/4-inch</option>
+										<option sensorWidth="2.20" sensorHeight="1.60">1/6-inch</option>
+									</optgroup>
+									<optgroup label="Motion Picture Film">
+										<option sensorWidth="70.41" sensorHeight="52.63">IMAX® 70mm (15 perf)</option>
+										<option sensorWidth="52.48" sensorHeight="23.01">65/70mm (5 perf)</option>
+										<option sensorWidth="37.97" sensorHeight="25.17">VistaVision® 35mm (8 perf)</option>
+										<option sensorWidth="24.89" sensorHeight="18.67">Super 35 (4 perf)</option>
+										<option sensorWidth="22.00" sensorHeight="16.00">Academy 35mm (4 perf)</option>
+										<option sensorWidth="12.52" sensorHeight="7.42">Super 16mm</option>
+										<option sensorWidth="10.26" sensorHeight="7.49">16mm</option>
+									</optgroup>
+									<optgroup label="Digital Still">
+										<option sensorWidth="35.90" sensorHeight="24.00">35mm*</option>
+										<option sensorWidth="27.90" sensorHeight="18.60">APS-H</option>
+										<option sensorWidth="23.50" sensorHeight="15.60">APS-C*</option>
+										<option sensorWidth="18.00" sensorHeight="13.50">4/3”</option>
+										<option sensorWidth="12.80" sensorHeight="9.60">1"</option>
+										<option sensorWidth="8.80" sensorHeight="6.60">2/3"</option>
+										<option sensorWidth="7.60" sensorHeight="5.70">1/1.7"</option>
+										<option sensorWidth="7.18" sensorHeight="5.32">1/1.8"</option>
+										<option sensorWidth="6.40" sensorHeight="4.80">1/2"</option>
+										<option sensorWidth="6.16" sensorHeight="4.62">1/2.3"</option>
+										<option sensorWidth="5.76" sensorHeight="4.29">1/2.5"</option>
+										<option sensorWidth="5.37" sensorHeight="4.04">1/2.7"</option>
+										<option sensorWidth="4.80" sensorHeight="3.60">1/3"</option>
+										<option sensorWidth="4.54" sensorHeight="3.42">1/3.2"</option>
+										<option sensorWidth="4.00" sensorHeight="3.00">1/3.6"</option>
+									</optgroup>
+									<optgroup label="Still Film">
+										<option sensorWidth="36.00" sensorHeight="24.00">35mm (8 perf)</option>
+										<option sensorWidth="30.20" sensorHeight="16.70">APS-H</option>
+										<option sensorWidth="25.10" sensorHeight="16.70">APS-C</option>
+									</optgroup>
+								</select>
 							</div>
 						</div>
 						<div class="control-group">
@@ -37,9 +97,27 @@
 							</div>
 						</div>
 					</form>
-					<br>
-					Distace:
-					<p id='out'></p>
+				</div>
+				<div class="span6">
+					<h4>Output</h4>
+					<form class="form-horizontal">
+						<div class="control-group">
+							<label class="control-label" for="frameWidth">Width</label>
+							<div class="controls">
+								<input type="text" id="frameWidth" placeholder="" disabled>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="frameHeight">Height</label>
+							<div class="controls">
+								<input type="text" id="frameHeight" placeholder="" disabled>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span12">
 					<div id='frame'>
 						<svg id='svg' xmlns="http://www.w3.org/2000/svg" width="640" height="360" xmlns:xlink="http://www.w3.org/1999/xlink" >
 							<g id='scaler'>

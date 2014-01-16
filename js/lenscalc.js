@@ -8,12 +8,14 @@ function calcFieldOfView(distance,focal_length,sensor_size)
 
 function calcHorizontal(distance,focal_length)
 {
-	return calcFieldOfView(distance,focal_length, 9.59);
+	var sensorWidth = $('#sensorSize :selected').attr('sensorWidth');
+	return calcFieldOfView(distance,focal_length, sensorWidth);
 }
 
 function calcVertical(distance,focal_length)
 {
-	return calcFieldOfView(distance,focal_length, 5.39);
+	var sensorHeight = $('#sensorSize :selected').attr('sensorHeight');
+	return calcFieldOfView(distance,focal_length, sensorHeight);
 }
 
 function calcFrame()
@@ -22,7 +24,8 @@ function calcFrame()
 	focal_length = $('#focal_length').val();
 	vertical = calcVertical(distance, focal_length);
 	horizontal = calcHorizontal(distance,focal_length);
-	$('#out').text(horizontal + ' x ' + vertical);
+	$('#frameHeight').attr("value", vertical);
+	$('#frameWidth').attr("value", horizontal);
 	scale_new(6/vertical);
 }
 
