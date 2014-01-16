@@ -3,7 +3,7 @@ var actual_width = 100;
 
 function calcFieldOfView(distance,focal_length,sensor_size)
 {
-	return Math.round(( distance * sensor_size / focal_length  * 100) / 100;
+	return Math.round( distance * sensor_size / focal_length  * 100) / 100;
 }
 
 function calcHorizontal(distance,focal_length)
